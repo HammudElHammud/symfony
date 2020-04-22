@@ -1,0 +1,93 @@
+{% extends('adminBase.html.twig') %}
+
+{% block title %} Trip Home page  {% endblock %}
+
+{% block body %}
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+    <div class="sparkline13-list mg-b-15">
+        <div class="sparkline13-hd table table-striped">
+            <div class="main-sparkline13-hd">
+                <h1>Trip List</h1>
+            </div>
+        </div>
+        <div class="sparkline13-graph">
+            <div class="static-table-list">
+
+                <h2 class="small">Trip index</h2>
+
+                <table class="table table-striped hover active table-bordered">
+                    <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Title</th>
+                        <th>Keywords</th>
+                        <th>Category</th>
+                        <th>Trip_start</th>
+                        <th>Trip_end</th>
+                        <th>Image</th>
+                        <th>Gallary</th>
+                        <th>Price</th>
+                        <th>Show</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for trip in trips %}
+                        <tr>
+                            <td>{{ trip.id }}</td>
+                            <td>{{ trip.title }}</td>
+                            <td>{{ trip.keywords }}</td>
+                            <td>{{ trip.category.title }}</td>
+{#                            <td>{{ trip.type }}</td>#}
+{#                            <td>{{ trip.publisherId }}</td>#}
+                            <td>{{ trip.tripStart ? trip.tripStart|date('Y-m-d') : '' }}</td>
+                            <td>{{ trip.tripEnd ? trip.tripEnd|date('Y-m-d') : '' }}</td>
+                            <td>
+                                {% if  trip.image == null %}
+                                    <a onclick="myFunction('{{ path('admin_trip_iedit',{'id': trip.id}) }}')" href="#">
+                                        <img src="{{ asset('assets/admin') }}/imag/image.jpg" alt="" height="40px" width="30px" class="src">
+                                    </a>
+                                {% else %}
+                                    <a onclick="myFunction('{{ path('admin_trip_iedit',{'id': trip.id}) }}')" href="#">
+                                        <img src="{{ asset('uploads/image') }}/{{ trip.image.image }} " alt="" height="70px" width="60px" class="src">
+                                    </a>
+                                {% endif %}
+                                <script>
+                                    function myFunction(url) {
+                                        var myWindow = window.open(url, "", "width=500,height=500");
+                                    }
+                                </script>
+                            </td>
+                            <td>
+                                <a onclick="myFunction('{{ path('trip_image_gallery', {'id': trip.id}) }}')" href="#">
+                                    <img src="{{ asset('assets/images') }}/gallary.jpg" alt="" height="40px" width="30px" class="src">
+                                </a>
+                            </td>
+                            <td>{{ trip.price }}</td>
+
+                            <td>
+                                <a class="btn btn-success" href="{{ path('admin_trip_show', {'id': trip.id}) }}"> <i
+                                            class="fa fa-eye"> </i> show</a>
+                            </td>
+                            <td>
+                                <a class="btn btn-info" href="{{ path('admin_trip_edit', {'id': trip.id}) }}"> <i
+                                            class="fa fa-edit"></i> edit</a>
+                            </td>
+                            <td>
+                                {{ include('admin/admin/trip/_delete_form.html.twig') }}
+                            </td>
+                        </tr>
+
+                    {% else %}
+
+                        <tr>
+                            <td colspan="12">no records found</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                <br><br>
+                <a class="btn btn-sm btn-primary" href="{{ path('admin_trip_new') }}"> <i class="fa fa-newspaper-o " ></i>  Create new</a>
+            </div>
+            {% endblock %}

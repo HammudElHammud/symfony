@@ -1,0 +1,8 @@
+{% extends('admin/homeBase.html.twig') %}
+
+{% block body %}
+    {% include('home/User/user-upper.html.twig') %}
+    {% form_theme form 'bootstrap_4_layout.html.twig' %}
+    {% include ('admin/admin/comment/_form.html.twig') %}
+    {% include('home/User/user-lower.html.twig') %}
+{% endblock %}

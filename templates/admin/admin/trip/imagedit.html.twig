@@ -1,0 +1,21 @@
+{#{% extends('adminBase.html.twig') %}#}
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+
+{#<title>Edit trip</title>#}
+{% block title  %}  Edit trip page {% endblock %}
+
+{% block body %}
+    <h1>{{ trip.title }}</h1>
+
+    <form action="{{ path('admin_trip_iupdate',{'id' : trip.id} ) }}" method="post" enctype="multipart/form-data" name="trip">
+        Select image to upload:
+        <input type="number" name="parentId"  value='{{ id }}'>
+        <input type="file" name="trip[image]" id="fileToUpload">
+        <input type="submit" value="Upload Image" name="submit">
+    </form>
+    {% if  trip.image != null  %}
+
+    <img src="{{ asset('uploads') }}/image/{{  trip.image}}" alt="" class="src">
+    {% endif %}
+
+{% endblock %}

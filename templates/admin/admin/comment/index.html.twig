@@ -1,0 +1,37 @@
+{% extends('adminBase.html.twig') %}
+{% block title%} Comment index{%  endblock %}
+
+{% block body %}
+    <h1>Comment index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Comment</th>
+                <th>Commented_at</th>
+{#                <th>Commented</th>#}
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for comment in comments %}
+            <tr>
+                <td>{{ comment.id }}</td>
+                <td>{{ comment.comment }}</td>
+                <td>{{ comment.commentedAt ? comment.commentedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a class="btn btn-success" href="{{ path('comment_show', {'id': comment.id}) }}"> <i class="fa fa-eye" > </i> show</a>
+                    <a class="btn btn-info" href="{{ path('comment_edit', {'id': comment.id}) }}"> <i class="fa fa-edit"></i>edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a  class="btn btn-sm btn-primary" href="{{ path('comment_new') }}"> <i class="fa fa-newspaper-o " ></i>Create new</a>
+{% endblock %}

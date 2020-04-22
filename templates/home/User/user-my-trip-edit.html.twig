@@ -1,0 +1,13 @@
+{% extends('admin/homeBase.html.twig') %}
+
+{#<title>Edit trip</title>#}
+
+{% block body %}
+    {% include('home/User/user-upper.html.twig') %}
+    <h1>Edit trip</h1>
+
+    {{ include('admin/admin/trip/_form.html.twig', {'button_label': 'Edit'}) }}
+    <a class="btn btn-info btn-sm " href="{{ path('user_trip_index') }}"> <i class="fa fa-arrow-left"> </i>back to list</a>
+    {% include('home/User/user-lower.html.twig') %}
+
+{% endblock %}

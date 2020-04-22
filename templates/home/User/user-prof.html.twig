@@ -1,0 +1,85 @@
+{% extends('admin/homeBase.html.twig') %}
+
+{% block body %}
+    {% include('home/User/user-upper.html.twig') %}
+{#    <table class="table table-striped">#}
+{#        <thead>#}
+{#        <tr>#}
+{#            <th>Id</th>#}
+{#            <th>Name</th>#}
+{#            <th>Image</th>#}
+{#            <th>Email</th>#}
+{#            <th>Status</th>#}
+{#            <th>Delete</th>#}
+{#            <th>Edit</th>#}
+{#        </tr>#}
+{#        </thead>#}
+{#        <tbody>#}
+{#            <tr>#}
+{#                <th>{{ app.user.id}}</th>#}
+{#                <th>{{ app.user.name}}</th>#}
+{#                <th >               <img src="{{ asset('uploads/image/') }}{{ app.user.image }}" alt="" width="75px" height="75px" style="object-fit: cover; display: inline-block;">#}
+{#                </th>#}
+{#                <th>{{ app.user.email }}</th>#}
+{#                <th>{{ app.user.status }}</th>#}
+{#
+{#            </tr>#}
+
+{#        </tbody>#}
+{#    </table>#}
+    <div class="row">
+        <div class="col col-lg-3 col-md-4 col-sm-12">
+            <div class="" style="padding: 20px 10px;">
+    <div class="row form-group">
+        <div class="col col-md-3">
+            <label for="" class=" form-control-label" >User Id:</label>
+        </div>
+        <div class="col-12 col-md-9">
+           <p> {{ app.user.id }}</p>
+
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col col-md-3">
+            <label for="" class=" form-control-label" >User Name:</label>
+        </div>
+        <div class="col-12 col-md-9">
+            <p> {{ app.user.name }}</p>
+
+        </div>
+    </div> <div class="row form-group">
+    <div class="col col-md-3">
+        <label for="" class=" form-control-label" >User Image:</label>
+    </div>
+    <div class="col-12 col-md-9">
+        <p> <img src="{{ asset('uploads/image/') }}{{ app.user.image }}" alt="" width="75px" height="75px" style="object-fit: cover; display: inline-block;"></p>
+
+    </div>
+</div> <div class="row form-group">
+    <div class="col col-md-3">
+        <label for="" class=" form-control-label" >User Email:</label>
+    </div>
+    <div class="col-12 col-md-9">
+        <p> {{ app.user.email }}</p>
+
+    </div>
+</div>
+    </div> <div class="row form-group">
+    <div class="col col-md-3">
+        <label for="" class=" form-control-label" >User Status:</label>
+    </div>
+    <div class="col-12 col-md-9">
+        <p> {{ app.user.status }}</p>
+
+    </div>
+
+</div>
+</div>
+    </div>
+    </div>
+    </div>
+
+
+
+    {% include('home/User/user-lower.html.twig') %}
+{% endblock %}

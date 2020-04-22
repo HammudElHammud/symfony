@@ -1,0 +1,16 @@
+{% extends('admin/homeBase.html.twig') %}
+{#<title>New trip</title>#}
+
+{% block body %}
+    {% include('home/User/user-upper.html.twig') %}
+    <div class="sparkline13-list mg-b-15">
+        <div class="sparkline13-hd table table-striped">
+            <div class="main-sparkline13-hd">
+                <h1>Create new trip</h1>
+                {{ include('admin/admin/trip/_form.html.twig') }}
+                {#<a class="btn btn-info btn-sm " href="{{ path('admin_trip_index') }}"><i class="fa fa-arrow-left"></i>back to list</a>{% endblock %}#}
+            </div>
+        </div>
+    </div>
+    {% include('home/User/user-lower.html.twig') %}
+{% endblock %}

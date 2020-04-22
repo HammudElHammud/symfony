@@ -1,0 +1,12 @@
+{% extends('adminBase.html.twig') %}
+{% block title %}Edit {{ joined.trip.title }}{% endblock %}
+
+{% block body %}
+    <h1>Edit Joined</h1>
+
+    {{ include('admin/admin/joined/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('joined_index') }}">back to list</a>
+
+    {{ include('admin/admin/joined/_delete_form.html.twig') }}
+{% endblock %}

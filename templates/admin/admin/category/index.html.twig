@@ -1,0 +1,51 @@
+{% extends('adminBase.html.twig') %}
+
+{% block title %} Category Home page  {% endblock %}
+
+{% block body %}
+
+    <table class="table table-striped table-dark hover active">
+        <thead>
+            <tr>
+                <th  scope="col">Id</th>
+                <th  scope="col">Parentid</th>
+                <th  scope="col">Title</th>
+                <th  scope="col">Keywords</th>
+                <th  scope="col">Description</th>
+                <th  scope="col">Image</th>
+                <th  scope="col">Show</th>
+                <th  scope="col">Edit</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for category in categories %}
+            <tr>
+                <td>{{ category.id }}</td>
+                <td>
+                    {% if category.parentid %}
+                        {{ category.parentid.title }}
+                    {% else %}
+                        Main Category
+                    {% endif %}
+                </td>
+                <td>{{ category.title }}</td>
+                <td>{{ category.keywords }}</td>
+                <td>{{ category.description }}</td>
+                <td><img src="{{ asset('uploads/image') }}/{{ category.image.image }} " alt="" height="70px" width="60px" class="src"></td>
+                <td>
+                    <a class="btn btn-success" href="{{ path('category_show', {'id': category.id}) }}"> <i class="fa fa-eye" > </i> show</a>
+                </td>
+                <td>
+                    <a class="btn btn-info" href="{{ path('category_edit', {'id': category.id}) }}"> <i class="fa fa-edit"></i> edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="10">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <a class="btn btn-sm btn-primary" href="{{ path('category_new') }}"> <i class="fa fa-newspaper-o " ></i> Create new</a>
+
+{% endblock %}

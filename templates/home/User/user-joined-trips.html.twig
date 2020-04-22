@@ -1,0 +1,49 @@
+{% extends('admin/homeBase.html.twig') %}
+
+{% block body %}
+    {% include('home/User/user-upper.html.twig') %}
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Trip Title</th>
+            <th>Trip's Price</th>
+            <th>Trip's Start Date</th>
+            <th>Added At</th>
+            <th>Status</th>
+            <th>View</th>
+            <th>Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for joined in joineds %}
+            <tr>
+                <th>{{ joined.trip.title }}</th>
+                <th>{{ joined.trip.price }}</th>
+                <th>{{ joined.trip.tripStart|date("m/d/Y") }}</th>
+                <th>{{ joined.addedAt |date("m/d/Y") }}</th>
+                <th>{{ joined.status }}</th>
+                <th><a href="{{ path('trip_detail', {'id' : joined.trip.id}) }}" class="btn btn-sm btn-info">View</a></th>
+                <th>
+                    {% if joined.status == "Pending" %}
+                    <form method="post" action="{{ path('delete-joined-list', {'id': joined.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ joined.id) }}">
+                        <button class="btn btn-sm btn-danger">Delete</button>
+                    </form>
+                    {% else %}
+                        <button onclick="onWarning()" class="btn btn-sm btn-danger"> Delete</button>
+                    {% endif %}
+                </th>
+            </tr>
+        {% else %}
+            <h5>You Haven't Join Any Trip Yet.</h5>
+        {% endfor %}
+        </tbody>
+        <script>
+            function onWarning() {
+                window.alert("Trip Has Been Accepted. Can't delete trip.")
+            }
+        </script>
+    </table>
+    {% include('home/User/user-lower.html.twig') %}
+{% endblock %}

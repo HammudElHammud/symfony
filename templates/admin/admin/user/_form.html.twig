@@ -1,0 +1,86 @@
+{#{{ form_start(form) }}#}
+{#    {{ form_widget(form) }}#}
+{#    <button class="btn">{{ button_label|default('Save') }}</button>#}
+{#{{ form_end(form) }}#}
+
+
+<form action="" name="category" method="post" enctype="multipart/form-data" class="form-horizontal">
+    {#                parentID#}
+    <div class="row form-group">
+        <div class="col col-md-3">
+            <label for="mainCategory" class=" form-control-label">Main Category</label>
+        </div>
+        <div class="col-12 col-md-9">
+            <select name="category[parentid]" id="select" class="form-control" name="category[status]">
+                <option value="0">Main Category</option>
+                {% for cat in categories %}
+                    <option value="{{ cat.id }}">{{ cat.title }}</option>
+                {% endfor %}
+            </select>
+            <small class="form-text text-muted">Please Select Main Category For this.</small>
+        </div>
+    </div>
+
+    {#                Category Name#}
+    <div class="row form-group">
+        <div class="col col-md-3">
+            <label for="" class=" form-control-label" >Category Title</label>
+        </div>
+        <div class="col-12 col-md-9">
+            <input value="{{ category.title ? category.title }}" type="text" id="email-input" name="category[title]" placeholder="Name of the Category"
+                   class="form-control">
+
+        </div>
+    </div>
+
+    {#                Keyword#}
+    <div class="row form-group">
+        <div class="col col-md-3">
+            <label for="textarea-input" class=" form-control-label">Keyword</label>
+        </div>
+        <div class="col-12 col-md-9">
+            <textarea name="category[keywords]" id="textarea-input" rows="3" placeholder="Keywords For this Category"
+                      class="form-control">{{ category.keywords ? category.keywords }}</textarea>
+
+        </div>
+    </div>
+
+    {#                Description#}
+    <div class="row form-group">
+        <div class="col col-md-3">
+            <label for="textarea-input" class=" form-control-label">description</label>
+        </div>
+        <div class="col-12 col-md-9">
+            <textarea name="category[description]" id="textarea-input" rows="3" placeholder="Description for this Category"
+                      class="form-control">{{ category.description ? category.description }}</textarea>
+
+        </div>
+    </div>
+
+    <div class="row form-group">
+        <div class="col col-md-3">
+            <label for="image" class=" form-control-label">Image</label>
+        </div>
+        <div class="col-12 col-md-9">
+            <select name="category[image]" id="select" class="form-control" name="category[status]">
+                {% for image in images %}
+                    <option value="{{ image.id }}">{{ image.image }}</option>
+                {% endfor %}
+            </select>
+            <small class="form-text text-muted">Please Select Main Category For this.</small>
+        </div>
+    </div>
+
+    {#                Status#}
+    <div class="row form-group">
+        <div class="col col-md-3">
+            <label for="select" class=" form-control-label">Status</label>
+        </div>
+        <div class="col-12 col-md-9">
+            <select name="select" id="select" class="form-control" name="category[status]">
+                <option value="Unpublished">True</option>
+                <option value="Published">False</option>
+            </select>
+        </div>
+    </div>
+    <button  class="btn btn-primary btn btn-info btn-sm floatright">{{ button_label|default('Save') }}</button>

@@ -1,0 +1,69 @@
+    <!--[if lt IE 8]>
+		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="{{asset('assets/admin')}}/http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+	<![endif]-->
+    <!-- Start Left menu area -->
+    <div class="left-sidebar-pro">
+        <nav id="sidebar" class="">
+            <div class="sidebar-header">
+                <a href="http://127.0.0.1:8000/admin"><img class="main-logo" src="{{asset('assets/admin')}}/img/logo/logo.png" alt="" /></a>
+                <strong><a href="http://127.0.0.1:8000/admin"/index.html"><img src="img/logo/logosn.png" alt="" /></a></strong>
+            </div>
+            <div class="left-custom-menu-adp-wrap comment-scrollbar">
+                <nav class="sidebar-nav left-sidebar-menu-pro">
+                    <ul class="metismenu" id="menu1">
+
+                        <li class="">
+                            <a class="has-arrow" href="{{ path('category_index') }}" aria-expanded="false"><span class="educate-icon educate-professor icon-wrap"></span> <span class="mini-click-non">Category</span></a>
+                            <ul class="submenu-angle" aria-expanded="false">
+                                <li><a title="All Professors" href="{{ path('category_index') }}"><span class="mini-sub-pro">All Category</span></a></li>
+                                <li><a title="Add Professor" href="{{ path('category_new') }}"><span class="mini-sub-pro">Add Category</span></a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow"  aria-expanded="false">
+                                <i class='fa fa-bus' ></i>
+                                Travel </a>
+                            <ul class="submenu-angle" aria-expanded="false">
+                                <li><a title="All Students" href="{{ path('admin_trip_index') }}"><span class="mini-sub-pro">All Travels</span></a></li>
+                                <li><a title="Add Students" href="{{ path('admin_trip_new') }}"><span class="mini-sub-pro">Add Travel</span></a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a   aria-expanded="false" href="{{ path('joined_index') }}">
+                                <i class='fa fa-plus-circle' ></i>
+                                Joined List </a>
+                        </li>
+                        <li>
+                            <a   aria-expanded="false" href="{{ path('admin_user_index') }}">
+                                <i class='fa fa-user' ></i>
+                                User </a>
+
+                        </li>
+                        <li>
+                            <a class="has-arrow" aria-expanded="false">
+                                <i class='fa fa-cog' ></i>
+                                Settings </a>
+                            <ul class="submenu-angle" aria-expanded="false">
+                                <li><a title="All Students" href="{{ path('setting_index') }}"><span class="mini-sub-pro">Setting</span></a></li>
+                                <li><a title="Add Students" href="{{ path('slider_index') }}"><span class="mini-sub-pro">Sliders</span></a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a   aria-expanded="false" href="{{ path('admin_message_index') }}">
+                                <i class='fa fa-mail-forward' ></i>
+                                <ion-icon name="mail"></ion-icon>
+                                Masseges </a>
+                        </li>
+                        <li>
+                            <a   aria-expanded="false" href="{{ path('comment_index') }}">
+                                <i class='fa fa-comment' ></i>
+                                <ion-icon name="mail"></ion-icon>
+                                Comments </a>
+
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </nav>
+    </div>
+    <!-- End Left menu area -->

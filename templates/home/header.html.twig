@@ -1,0 +1,122 @@
+{#<div class="top-bar py-2 border-bottom">#}
+{#    <div class="container">#}
+{#        <div class="row middle-flex">#}
+{#            <div class="col-xl-7 col-md-5 top-social-agile mb-md-0 mb-1 text-lg-left text-center">#}
+{#                <div class="row">#}
+{#                    <div class="col-xl-3 col-6 header-top_w3layouts">#}
+{#                        <p class="text-da">#}
+{#                            <span class="fa fa-map-marker mr-2"></span>Parma Via, Italy#}
+{#                        </p>#}
+{#                    </div>#}
+{#                    <div class="col-xl-3 col-6 header-top_w3layouts">#}
+{#                        <p class="text-da">#}
+{#                            <span class="fa fa-phone mr-2"></span>+1 000263676#}
+{#                        </p>#}
+{#                    </div>#}
+{#                    <div class="col-xl-6"></div>#}
+{#                </div>#}
+{#            </div>#}
+{#            <div class="col-xl-5 col-md-7 top-social-agile text-md-right text-center pr-sm-0 mt-md-0 mt-2">#}
+{#                <div class="row middle-flex">#}
+
+{#                    <div class="col-lg-7 col-8 social-grid-w3">#}
+{#                        <!-- social icons -->#}
+{#                        <ul class="top-right-info">#}
+{#                            <li>#}
+{#                                <p>Follow Us:</p>#}
+{#                            </li>#}
+{#                            <li class="facebook-w3">#}
+{#                                <a href="#facebook">#}
+{#                                    <span class="fa fa-facebook-f"></span>#}
+{#                                </a>#}
+{#                            </li>#}
+{#                            <li class="twitter-w3">#}
+{#                                <a href="#twitter">#}
+{#                                    <span class="fa fa-twitter"></span>#}
+{#                                </a>#}
+{#                            </li>#}
+{#                            <li class="google-w3">#}
+{#                                <a href="#google">#}
+{#                                    <span class="fa fa-google-plus"></span>#}
+{#                                </a>#}
+{#                            </li>#}
+{#                            <li class="dribble-w3">#}
+{#                                <a href="#dribble">#}
+{#                                    <span class="fa fa-dribbble"></span>#}
+{#                                </a>#}
+{#                            </li>#}
+{#                        </ul>#}
+{#                        <!-- //social icons -->#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{#</div>#}
+{#</header>#}
+{#<!-- //top-bar -->#}
+
+<!-- header 2 -->
+<!-- navigation -->
+<div class="main-top py-1">
+    <div class="container">
+        <div class="nav-content">
+            <!-- logo -->
+            <h1>
+                <a id="logo" class="logo" href="{{ path('home') }}">
+                    <img src="images/logo.png" alt="" class="img-fluid"><span>Trip</span> TravelSites
+                </a>
+            </h1>
+            <!-- //logo -->
+            <!-- nav -->
+            <div class="nav_web-dealingsls">
+                <nav>
+                    <label for="drop" class="toggle">Menu</label>
+                    <input type="checkbox" id="drop" />
+                    <ul class="menu">
+                        <li><a href="{{ path('home') }}">Home</a></li>
+                        <li><a href="{{ path('aboutus') }}">About Us</a></li>
+{#                        <li>#}
+{#                            <!-- First Tier Drop Down -->#}
+{#                            <label for="drop-3" class="toggle toogle-2">Pages <span class="fa fa-angle-down"#}
+{#                                                                                    aria-hidden="true"></span>#}
+{#                            </label>#}
+{#                            <a href="#pages">Pages <span class="fa fa-angle-down" aria-hidden="true"></span></a>#}
+{#                            <input type="checkbox" id="drop-3" />#}
+{#                            <ul>#}
+{#                                <li><a class="drop-text" href="#services">Services</a></li>#}
+{#                                <li><a class="drop-text" href="about.html">Our Chefs</a></li>#}
+{#                                <li><a class="drop-text" href="#blog">Blog</a></li>#}
+{#                                <li><a class="drop-text" href="single.html">Single Page</a></li>#}
+{#                                <li><a class="drop-text" href="login.html">Login</a></li>#}
+{#                                <li><a class="drop-text" href="register.html">Register</a></li>#}
+{#                            </ul>#}
+{#                        </li>#}
+                        <li><a href="{{ path('contantus') }}">Contact Us</a></li>
+                        <li>
+                                <!-- login -->
+{#                                <a href="{{ path('home_login') }}" class="btn login-button-2 text-uppercase text-wh">#}
+                            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                                <a href="/user"> <span class="fa fa-sign-in mr-2"></span>{{ app.user.name }}</a>
+                            <img src="{{ asset('uploads/image/') }}{{ app.user.image }}" alt="" width="30px" height="30px" style="object-fit: cover; display: inline-block;">
+
+                        <li>
+                            {% else %}
+                            <a href="{{ path('app_login') }}"> <span class="fa fa-sign-in mr-2"></span>Login</a>
+
+
+
+                        </li>
+                            {% endif %}
+                                <!-- //login -->
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <!-- //nav -->
+        </div>
+    </div>
+</div>
+<!-- //navigation -->
+
+

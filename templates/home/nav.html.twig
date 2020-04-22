@@ -1,0 +1,28 @@
+<div class="banner-input">
+		<div class="container">
+			<form>
+				<input type="text" value="City, Region or Country" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'City, Region or Country';}" required="">
+				<select id="country" onchange="change_country(this.value)" class="frm-field required">
+					<option value="null">Traveller 1</option>
+					<option value="null">Traveller 2</option>         
+					<option value="AX">Traveller 3</option>
+					<option value="AX">Traveller 4</option>
+					<option value="AX">Traveller 5</option>
+					<option value="AX">Traveller 6</option>
+				</select>
+				<input class="date" id="datepicker" type="text" value="19/10/2015" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '19/10/2015';}" required="">
+				<i class="glyphicon glyphicon-search" aria-hidden="true"></i>
+				<input type="submit" value=" " >
+				<div class="clearfix"> </div>
+			</form>
+				<!---strat-date-piker---->
+					<link rel="stylesheet" href="{{asset('assets/home')}}/css/jquery-ui.css" />
+					<script src="{{asset('assets/home')}}/js/jquery-ui.js"></script>
+					  <script>
+							  $(function() {
+								$( "#datepicker" ).datepicker();
+							  });
+					  </script>
+				<!---/End-date-piker---->
+		</div>
+	</div>

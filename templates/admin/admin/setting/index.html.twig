@@ -1,0 +1,56 @@
+{% extends('adminBase.html.twig') %}
+{% block title %}Setting index{% endblock %}
+
+{% block body %}
+
+    <h1>Setting index</h1>
+
+    <table class="table table table-striped table-dark hover active">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Keywords</th>
+                <th>Description</th>
+                <th>Address</th>
+                <th>Phone</th>
+                <th>Fax</th>
+                <th>Email</th>
+
+
+                <th>Show</th>
+                <th>Edit</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for setting in settings %}
+            <tr>
+                <td>{{ setting.id }}</td>
+                <td>{{ setting.title }}</td>
+                <td>{{ setting.keywords }}</td>
+                <td>{{ setting.description }}</td>
+                <td>{{ setting.address }}</td>
+                <td>{{ setting.phone }}</td>
+                <td>{{ setting.fax }}</td>
+                <td>{{ setting.email }}</td>
+
+
+
+                <td>
+                    <a class="btn btn-success"href="{{ path('setting_show', {'id': setting.id}) }}"><i class="fa fa-eye" > </i>show</a>
+                </td>
+            <td>
+                <a class="btn btn-info" href="{{ path('setting_edit', {'id': setting.id}) }}"><i class="fa fa-edit"></i>edit</a>
+
+            </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="20">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-sm btn-primary" href="{{ path('setting_new') }}"> <i class="fa fa-newspaper-o " ></i>Create new</a>
+{% endblock %}

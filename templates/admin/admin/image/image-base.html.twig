@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="{{asset('assets/admin')}}/css/bootstrap.min.css">
+    <!-- Bootstrap CSS
+		============================================ -->
+    <link rel="stylesheet" href="{{asset('assets/admin')}}/css/font-awesome.min.css">
+    <!-- owl.carousel CSS
+		============================================ -->
+    <link rel="stylesheet" href="{{asset('assets/admin')}}/css/owl.carousel.css">
+    <link rel="stylesheet" href="{{asset('assets/admin')}}/css/owl.theme.css">
+    <link rel="stylesheet" href="{{asset('assets/admin')}}/css/owl.transitions.css">
+    <!-- animate CSS
+		============================================ -->
+    <link rel="stylesheet" href="{{asset('assets/admin')}}/css/animate.css">
+    <!-- normalize CSS
+		============================================ -->
+    <link rel="stylesheet" href="{{asset('assets/admin')}}/css/normalize.css">
+    <!-- meanmenu icon CSS
+		============================================ -->
+    <link rel="stylesheet" href="{{asset('assets/admin')}}/css/meanmenu.min.css">
+    <!-- main CSS
+		============================================ -->
+    <link rel="stylesheet" href="{{asset('assets/admin')}}/css/main.css">
+    <!-- educate icon CSS
+		============================================ -->
+    <link rel="stylesheet" href="{{asset('assets/admin')}}/css/educate-custon-icon.css">
+    <!-- morrisjs CSS
+		============================================ -->
+    <link rel="stylesheet" href="{{asset('assets/admin')}}/css/morrisjs/morris.css">
+    <!-- mCustomScrollbar CSS
+		============================================ -->
+    <link rel="stylesheet" href="{{asset('assets/admin')}}/css/scrollbar/jquery.mCustomScrollbar.min.css">
+    <!-- metisMenu CSS
+		============================================ -->
+    <link rel="stylesheet" href="{{asset('assets/admin')}}/css/metisMenu/metisMenu.min.css">
+    <link rel="stylesheet" href="{{asset('assets/admin')}}/css/metisMenu/metisMenu-vertical.css">
+    <!-- calendar CSS
+		============================================ -->
+    <link rel="stylesheet" href="{{asset('assets/admin')}}/css/calendar/fullcalendar.min.css">
+    <link rel="stylesheet" href="{{asset('assets/admin')}}/css/calendar/fullcalendar.print.min.css">
+    <!-- style CSS
+		============================================ -->
+    <link rel="stylesheet" href="{{asset('assets/admin')}}/style.css">
+    <!-- responsive CSS
+		============================================ -->
+    <link rel="stylesheet" href="{{asset('assets/admin')}}/css/responsive.css">
+
+
+    <link rel="stylesheet" href="{{asset('assets/admin')}}/css/bootstrap.min.css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+    <style>
+        .image{
+            width: 200px;
+            height: 200px;
+        }
+
+        .gallery {
+            -webkit-column-count: 3;
+            -moz-column-count: 3;
+            column-count: 3;
+            -webkit-column-width: 33%;
+            -moz-column-width: 33%;
+            column-width: 33%; }
+        .gallery .pics {
+            -webkit-transition: all 350ms ease;
+            transition: all 350ms ease; }
+        .gallery .animation {
+            -webkit-transform: scale(1);
+            -ms-transform: scale(1);
+            transform: scale(1); }
+
+        @media (max-width: 450px) {
+            .gallery {
+                -webkit-column-count: 1;
+                -moz-column-count: 1;
+                column-count: 1;
+                -webkit-column-width: 100%;
+                -moz-column-width: 100%;
+                column-width: 100%;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .btn.filter {
+                padding-left: 1.1rem;
+                padding-right: 1.1rem;
+            }
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    {% block body %} {% endblock %}
+</body>
+</html>

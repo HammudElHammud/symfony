@@ -1,0 +1,39 @@
+<hr>
+<div class="container">
+    <div class="" style="padding: 0px 0px;"></div>
+
+    <div class="row">
+        <div class="col col-lg-3 col-md-4 col-sm-12">
+            <div class="border" style="padding: 20px 10px;">
+                <div class="col col-12">
+                    <img class="border align-center" src="{{ asset('uploads/image/') }}{{ app.user.image }}" alt="" width="200px" height="200px"  style="object-fit: cover; display: inline-block; margin: auto;">
+                </div>
+                <br>
+
+                <span style="text-align: center; display: block">
+                    <a onclick="myFunction('{{ path('upload_profile',{'id': app.user.id}) }}')" href="#">
+                        Change Image
+                    </a>
+                    <script>
+                                    function myFunction(url) {
+                                        var myWindow = window.open(url, "", "width=500,height=500");
+                                    }
+                                </script>
+                <h6 style="text-align: center">{{ app.user.name }}</h6>
+                <hr>
+                <script>
+                    function myFunction(url) {
+                        var myWindow = window.open(url, "", "width=500,height=500");
+                    }
+                </script>
+
+                <ul class="list-group">
+                    <li class="list-group-item"><a href="{{ path('user-profile') }}">My Profile</a></li>
+                    <li class="list-group-item"><a href="{{ path('user-saved-list') }}">My Saved Trips</a></li>
+                    <li class="list-group-item"><a href="{{ path('user-joined-list') }}">My Joined Trips</a></li>
+                    <li class="list-group-item"><a href="{{ path('user-comment') }}">My Comments</a></li>
+                    <li class="list-group-item"><a href="{{ path('user_trip_index') }}">My Trips</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col col-lg-9 col-md-8 col-sm-12">

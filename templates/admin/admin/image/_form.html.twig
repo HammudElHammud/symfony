@@ -1,0 +1,16 @@
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+{{ form_start(form) }}
+    {{ form_widget(form) }}
+<button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}
+{#<form action="" method="post" enctype="multipart/form-data" name="trip" class="form-horizontal">#}
+
+{#    <div class="form-group" >#}
+{#        Select image to upload:#}
+{#        <input type="number" name="parentId"  class="form-control btn btn-default" value='{{ trip.id }}' disabled>#}
+{#    </div>#}
+{#    <div class="form-group ">#}
+{#        <input type="file" name="image[image]" class="form-control btn btn-default" id="">#}
+{#    </div>#}
+
+

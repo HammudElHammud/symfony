@@ -1,0 +1,93 @@
+{% extends('admin/homeBase.html.twig') %}
+
+{% block body %}
+    {% include('home/User/user-upper.html.twig') %}
+    <table class="table table-striped table-responsive">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Status</th>
+            <th>Keywords</th>
+            <th>Category</th>
+            <th>Trip_start</th>
+            <th>Trip_end</th>
+            <th>Image</th>
+            <th>Gallary</th>
+            <th>Price</th>
+            <th>Show</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for trip in trips %}
+            <tr>
+                <td>{{ trip.id }}</td>
+                <td>{{ trip.title }}</td>
+                <td>{{ trip.status }}</td>
+                <td>{{ trip.keywords }}</td>
+                <td>{{ trip.category.title }}</td>
+                {#                            <td>{{ trip.type }}</td>#}
+                {#                            <td>{{ trip.publisherId }}</td>#}
+                <td>{{ trip.tripStart ? trip.tripStart|date('Y-m-d') : '' }}</td>
+                <td>{{ trip.tripEnd ? trip.tripEnd|date('Y-m-d') : '' }}</td>
+                <td>
+                    {% if  trip.image == null %}
+                        <a onclick="myFunction('{{ path('admin_trip_iedit',{'id': trip.id}) }}')" href="#">
+                            <img src="{{ asset('assets/admin') }}/imag/image.jpg" alt="" height="30px" width="30px" class="src">
+                        </a>
+                    {% else %}
+                        <a onclick="myFunction('{{ path('admin_trip_iedit',{'id': trip.id}) }}')" href="#">
+                            <img src="{{ asset('uploads/image') }}/{{ trip.image.image }} " alt="" height="30px" width="30px" class="src">
+                        </a>
+                    {% endif %}
+                    <script>
+                        function myFunction(url) {
+                            var myWindow = window.open(url, "", "width=500,height=500");
+                        }
+                    </script>
+                </td>
+                <td>
+                    <a onclick="myFunction('{{ path('trip_image_gallery', {'id': trip.id}) }}')" href="#">
+                        <img src="{{ asset('assets/images') }}/gallary.jpg" alt="" height="40px" width="30px" class="src">
+                    </a>
+                </td>
+                <td>{{ trip.price }}</td>
+
+                <td>
+                    <a class="btn btn-sm btn-success" href="{{ path('user_my_trip_show', {'id': trip.id}) }}"> <i
+                                class="fa fa-eye"> </i> show</a>
+                </td>
+                <td>
+                    <a class="btn  btn-sm btn-info" href="{{ path('user_my_trip_edit', {'id': trip.id}) }}"> <i
+                                class="fa fa-edit"></i> edit</a>
+                </td>
+                <td>
+                    <form method="post" action="{{ path('user_trip_delete', {'id': trip.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ trip.id) }}">
+                        <button class="btn btn-sm btn-danger floatright"><i class="fa fa-trash-o"></i>Delete</button>
+                    </form>
+
+                </td>
+            </tr>
+
+        {% else %}
+
+            <tr>
+                <td colspan="12">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+        <script>
+            function onWarning() {
+                window.alert("Trip Has Been Accepted. Can't delete trip.")
+            }
+        </script>
+    </table>
+    <div>
+        <a class="btn btn-sm btn-primary" href="{{ path('user_my_trip_new') }}"> <i class="fa fa-newspaper-o " ></i>  Create new</a>
+    </div>
+    {% include('home/User/user-lower.html.twig') %}
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends('adminBase.html.twig') %}
+{% block title %} Joined List Index{% endblock %}
+
+{% block body %}
+    <h1>Joined index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Trip Name</th>
+                <th>Username</th>
+                <th>Added at</th>
+                <th>Status</th>
+                <th>Show</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for joined in joineds %}
+            <tr>
+                <td>{{ joined.id }}</td>
+                <td>{{ joined.trip.title }}</td>
+                <td>{{ joined.user.name }}</td>
+                <td>{{ joined.addedAt ? joined.addedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ joined.status }}</td>
+                <td>
+                    <a class="btn btn-sm btn-info" href="{{ path('joined_show', {'id': joined.id}) }}">show</a>
+                </td>
+                {% if joined.status == "Pending" %}
+                    <td>
+                        <a class="btn btn-sm btn-danger" href="{{ path('decline_joined', {'id': joined.id}) }}" onclick="return confirm('Are you sure you want to DECLINE this trip?');">Decline</a>
+                        <a class="btn btn-sm btn-primary" href="{{ path('accept_joined', {'id' : joined.id}) }}" onclick="return confirm('Are you sure you want to ACCEPT this trip?');">Accept</a>
+                    </td>
+                {% elseif joined.status == "Declined" %}
+                    <td>
+                        <a class="btn btn-sm btn-primary" href="{{ path('accept_joined', {'id' : joined.id}) }}" onclick="return confirm('Are you sure you want to ACCEPT this trip?');">Accept</a>
+                    </td>
+                {% else %}
+                    <td>
+                        No Action Avaiable
+                    </td>
+                {% endif %}
+
+
+
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block head %}{% include('admin/admin/header.html.twig')  %}{% endblock %}
+    </head>
+    <body>
+        {% include('admin/admin/sidebar.html.twig')  %}
+        <div class="all-content-wrapper">
+            {% include('admin/admin/nav.html.twig')  %}
+            <div class="blog-details-area mg-b-15">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="blog-details-inner">
+                                {% block body %}{% endblock %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            {% include('admin/admin/footer.html.twig')  %}
+        </div>
+        {% include('admin/admin/javascript.html.twig')  %}
+        
+    </body>
+</html>

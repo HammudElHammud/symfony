@@ -1,0 +1,63 @@
+{% extends('adminBase.html.twig') %}
+
+
+{#<title>Category</title>#}
+
+{% block body %}
+    <div>
+        <h1 class="floatleft">Category</h1>
+        <a class="btn btn-info btn-sm floatright" href="{{ path('category_index') }}"><i class="fa fa-arrow-left"></i>back to list</a>
+    </div>
+    <table class="table border-bottom table-striped table-bordered">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ category.id }}</td>
+            </tr>
+            <tr>
+                <th>Parentid</th>
+                <td>{{ category.parentid }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ category.title }}</td>
+            </tr>
+            <tr>
+                <th>Keywords</th>
+                <td>{{ category.keywords }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ category.description }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td>
+                    {% if category.image %}
+                        <img src="{{ asset('uploads/image') }}/{{ category.image.image }}" alt="" style="width: 100%; height: 200px; object-fit: cover;">
+                    {% else %}
+                        No Image
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <th>Status</th>
+                <td>{{ category.status }}</td>
+            </tr>
+            <tr>
+                <th>Created_at</th>
+                <td>{{ category.createdAt ? category.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Updated_at</th>
+                <td>{{ category.updatedAt ? category.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="col col-12">
+        <a class="btn-sm btn btn-success floatleft" href="{{ path('category_edit', {'id': category.id}) }}"><i class="fa fa-edit"></i> edit</a>
+        {{ include('admin/admin/category/_delete_form.html.twig') }}
+        <div style="clear: left"></div>
+    </div>
+
+{% endblock %}
